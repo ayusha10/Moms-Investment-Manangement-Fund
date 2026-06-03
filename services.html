@@ -460,14 +460,19 @@
       pointer-events: none;
     }
     /* fallback image styling */
-    .showcase-card img {
-      background: linear-gradient(145deg, #cde5f5, #e8f4fd);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-      color: #0d4f8c;
-    }
+  .showcase-card img {
+    width: 100%;
+    height: 345px;
+    object-fit: cover;
+    display: block;
+}
+.wealth-img{
+    height:380px !important;
+}
+
+.process-img{
+    height:450px !important;
+}
   </style>
 </head>
 <body>
@@ -509,14 +514,14 @@
     <!-- Two attractive image cards: money management and process - FIXED WITH FALLBACKS -->
     <div class="showcase-grid">
       <div class="showcase-card fade-up delay-1">
-        <img src="money management.png" alt="Money management strategy" onerror="this.src='https://placehold.co/800x500/e8f4ff/0d4f8c?text=Strategic+Wealth+Management'; this.onerror=null;">
+        <img src="images/money-management.png" alt="Money management strategy" onerror="this.src='https://placehold.co/800x500/e8f4ff/0d4f8c?text=Strategic+Wealth+Management'; this.onerror=null;">
         <div class="showcase-content">
           <h3>Strategic Wealth Architecture</h3>
           <p>Our disciplined approach integrates asset allocation, risk assessment, and long-term capital appreciation. We tailor portfolios to navigate market cycles with confidence.</p>
         </div>
       </div>
       <div class="showcase-card fade-up delay-2">
-        <img src="process.jpg" alt="Investment process" onerror="this.src='https://placehold.co/800x500/e8f4ff/0d4f8c?text=Research+Driven+Process'; this.onerror=null;">
+        <img src="images/Process.jpg" alt="Investment process" onerror="this.src='https://placehold.co/800x500/e8f4ff/0d4f8c?text=Research+Driven+Process'; this.onerror=null;">
         <div class="showcase-content">
           <h3>Research-Backed Process</h3>
           <p>From due diligence to ongoing monitoring, we follow a rigorous investment framework designed to protect and grow your capital through transparency and expertise.</p>
