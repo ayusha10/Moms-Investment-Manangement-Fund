@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Our Services | Moms Investment Management Fund Pvt. Ltd.</title>
+  <meta name="description" content="Explore Moms Investment Management Fund services: Portfolio Management, Wealth Management, Investment Advisory, Retirement Planning, Risk Assessment, and Corporate Solutions." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Nunito Sans', sans-serif;
+      background: linear-gradient(180deg, #f5faff 0%, #eef6ff 48%, #ffffff 100%);
+      color: #0f2f55;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    :root {
+      color-scheme: light;
+      --brand-blue: #00c2ff;
+      --brand-navy: #0d4f8c;
+      --brand-soft: #e8f9ff;
+      --brand-muted: #5b708d;
+      --brand-orange: #ff7f2e;
+      --surface: #ffffff;
+      --surface-soft: #f3f9ff;
+      --accent-surface: #d9fee5;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    .container {
+      width: min(1280px, 92%);
+      margin: 0 auto;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: all .25s ease;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+    }
+    .button-primary {
+      background: var(--brand-navy);
+      color: #fff;
+      padding: 14px 28px;
+      box-shadow: 0 18px 40px rgba(0, 72, 126, .18);
+    }
+    .button-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 44px rgba(0, 72, 126, .22);
+    }
+    .button-outline {
+      border: 1px solid rgba(13, 47, 86, .18);
+      background: rgba(232, 249, 255, .95);
+      color: var(--brand-navy);
+      padding: 14px 26px;
+    }
+    /* Topbar */
+    .topbar {
+      background: rgba(255, 255, 255, 0.98);
+      border-bottom: 1px solid rgba(0, 164, 228, .14);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+    }
+    .topbar-info {
+      display: flex;
+      justify-content: center;
+      gap: 26px;
+      padding: 10px 0 8px;
+      font-size: 12px;
+      color: var(--brand-muted);
+      background: var(--brand-soft);
+      flex-wrap: wrap;
+    }
+    .topbar-info span {
+      white-space: nowrap;
+    }
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 16px 0;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .brand-logo {
+      width: 96px;
+      height: auto;
+      border-radius: 12px;
+      padding: 6px;
+      object-fit: contain;
+    }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-name {
+      font-size: 19px;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--brand-blue);
+      white-space: nowrap;
+    }
+    .topbar-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: center;
+    }
+    .topbar-nav a {
+      color: var(--brand-navy);
+      font-weight: 600;
+      font-size: .95rem;
+      padding: 8px 0;
+    }
+    /* animations */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.7s cubic-bezier(0.2, 0.9, 0.3, 1.1);
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .delay-1 { transition-delay: 0.05s; }
+    .delay-2 { transition-delay: 0.1s; }
+    .delay-3 { transition-delay: 0.15s; }
+    .delay-4 { transition-delay: 0.2s; }
+    
+    /* page header */
+    .services-header {
+      background: linear-gradient(135deg, #e2f0ff, #ffffff);
+      padding: 70px 0 50px;
+      text-align: center;
+      border-bottom: 1px solid rgba(0, 164, 228, .12);
+    }
+    .services-header h1 {
+      font-size: 3rem;
+      font-family: 'Montserrat', sans-serif;
+      color: var(--brand-navy);
+      margin-bottom: 16px;
+    }
+    .services-header p {
+      font-size: 1.1rem;
+      color: #3c5670;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    /* image showcase row (two images with animations) - FIXED */
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 60px auto 50px;
+    }
+    .showcase-card {
+      background: var(--surface);
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: 0 28px 50px rgba(15, 47, 86, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(0, 164, 228, 0.15);
+    }
+    .showcase-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 32px 64px rgba(15, 47, 86, 0.15);
+    }
+    .showcase-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      display: block;
+      background: linear-gradient(135deg, #d4eaff, #f0f8ff);
+    }
+    .showcase-content {
+      padding: 28px 28px 32px;
+    }
+    .showcase-content h3 {
+      font-size: 1.7rem;
+      color: var(--brand-navy);
+      margin-bottom: 12px;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .showcase-content p {
+      color: #2d4a6e;
+      line-height: 1.7;
+    }
+    /* services grid large - IMPROVED SPACING */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 32px;
+      margin: 48px 0 60px;
+    }
+    .service-card {
+      background: var(--surface);
+      border-radius: 28px;
+      padding: 32px 28px;
+      transition: all 0.3s;
+      box-shadow: 0 12px 30px rgba(0, 92, 172, 0.08);
+      border: 1px solid rgba(0, 164, 228, 0.12);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 28px 48px rgba(15, 47, 86, 0.12);
+      border-color: rgba(0, 194, 255, 0.3);
+    }
+    .service-icon {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      display: inline-block;
+      background: rgba(0, 194, 255, 0.12);
+      padding: 12px;
+      border-radius: 20px;
+      width: 60px;
+      text-align: center;
+    }
+    .service-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 14px;
+      color: var(--brand-navy);
+      font-weight: 800;
+    }
+    .service-card p {
+      color: #385a7a;
+      line-height: 1.7;
+      margin-bottom: 0;
+      flex: 1;
+    }
+    /* why choose us section */
+    .why-choose {
+      background: #f8fcff;
+      border-radius: 48px;
+      padding: 56px 48px;
+      margin: 48px 0 64px;
+      border: 1px solid rgba(0, 164, 228, 0.2);
+    }
+    .why-choose h2 {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 40px;
+      color: var(--brand-navy);
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+    .feature-badge {
+      background: white;
+      padding: 18px 20px;
+      border-radius: 28px;
+      text-align: center;
+      font-weight: 700;
+      color: var(--brand-navy);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.02);
+      border: 1px solid #e2f0ff;
+      transition: 0.2s;
+    }
+    .feature-badge:hover {
+      background: var(--brand-soft);
+      transform: scale(1.02);
+    }
+    /* small service cards */
+    .mini-services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+      margin: 40px 0 60px;
+    }
+    .mini-card {
+      background: white;
+      border-radius: 24px;
+      padding: 28px 24px;
+      border: 1px solid rgba(0, 164, 228, 0.15);
+      transition: all 0.25s;
+    }
+    .mini-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.06);
+    }
+    .mini-card h4 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      color: var(--brand-navy);
+    }
+    .mini-card p {
+      color: #4f6f8f;
+    }
+    /* footer */
+    .footer {
+      background: #ffffff;
+      color: #0f2f55;
+      padding: 60px 0 24px;
+      margin-top: 40px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 32px;
+      padding-bottom: 32px;
+    }
+    .footer h4 {
+      margin-bottom: 18px;
+      color: var(--brand-navy);
+      font-size: 1.15rem;
+    }
+    .footer-contact, .footer-services {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-contact li, .footer-services li {
+      margin-bottom: 14px;
+      color: #5b708d;
+      font-size: .95rem;
+    }
+    .footer-contact li::before {
+      content: '•';
+      display: inline-block;
+      width: 1em;
+      color: var(--brand-blue);
+    }
+    .footer-services li {
+      position: relative;
+      padding-left: 18px;
+    }
+    .footer-services li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--brand-blue);
+    }
+    .footer-col p {
+      color: #5b708d;
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+    .footer-newsletter {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .footer-newsletter input {
+      flex: 1;
+      padding: 14px 18px;
+      border-radius: 999px;
+      border: 1px solid #dce5ef;
+      outline: none;
+      font-size: .95rem;
+      background: #fafcff;
+    }
+    .footer-newsletter button {
+      border: 0;
+      border-radius: 999px;
+      min-width: 100px;
+      padding: 14px 20px;
+      background: var(--brand-blue);
+      color: #fff;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .footer-marquee {
+      overflow: hidden;
+      background: var(--brand-blue);
+      margin: 28px 0 20px;
+    }
+    .marquee-track {
+      display: flex;
+      animation: scroll 18s linear infinite;
+      padding: 14px 0;
+    }
+    .marquee-group {
+      display: flex;
+      gap: 60px;
+      align-items: center;
+      min-width: 100%;
+    }
+    .marquee-group span {
+      color: #fff;
+      white-space: nowrap;
+      font-weight: 700;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .footer-note {
+      border-top: 1px solid #dbe6f0;
+      padding-top: 24px;
+      margin-bottom: 18px;
+    }
+    .footer-note p {
+      margin: 0;
+      color: #66788f;
+      line-height: 1.9;
+    }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      color: #6b7b90;
+      font-size: .9rem;
+      border-top: 1px solid #dbe6f0;
+      padding-top: 18px;
+      flex-wrap: wrap;
+    }
+    @media (max-width: 992px) {
+      .showcase-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .topbar-inner { flex-direction: column; align-items: flex-start; }
+      .services-header h1 { font-size: 2.2rem; }
+      .services-grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+    }
+    @media (max-width: 640px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .service-card { padding: 24px 20px; }
+      .why-choose { padding: 32px 20px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .mini-services { grid-template-columns: 1fr; }
+    }
+    .toast-msg {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #0d4f8c;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 60px;
+      font-weight: 600;
+      z-index: 1000;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      pointer-events: none;
+    }
+    /* fallback image styling */
+    .showcase-card img {
+      background: linear-gradient(145deg, #cde5f5, #e8f4fd);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: #0d4f8c;
+    }
+  </style>
+</head>
+<body>
+
+<header class="topbar">
+    <div class="topbar-info">
+      <span>Reg No: 224144/076/077</span>
+      <span>Vat No: 609623709</span>
+      <span>Pulchowk, Lalitpur · Ph: 01-5450610</span>
+    </div>
+
+    <div class="container topbar-inner">
+      <a href="index.html" class="brand">
+        <img src="images/logo.png" alt="Moms Investment logo" class="brand-logo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 60%27%3E%3Crect width=%27100%27 height=%2760%27 fill=%27%2300c2ff%27/%3E%3Ctext x=%2712%27 y=%2738%27 fill=%27white%27 font-weight=%27bold%27 font-size=%2720%27%3EMIF%3C/text%3E%3C/svg%3E';" />
+        <div class="brand-text">
+          <span class="brand-name">MOMS INVESTMENT MANAGEMENT FUND PVT.LTD</span>
+        </div>
+      </a>
+
+      <nav class="topbar-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html" style="border-bottom:2px solid #00c2ff;">Services</a>
+        <a href="team.html">Meet The Team</a>
+        <a href="contact.html">Contact Us</a>
+      </nav>
+    </div>
+  </header>
+
+<main>
+  <div class="services-header fade-up visible">
+    <div class="container">
+      <h1>Our Investment Services</h1>
+      <p>Comprehensive wealth and asset management solutions tailored for families, institutions, and corporate partners.</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Two attractive image cards: money management and process - FIXED WITH FALLBACKS -->
+    <div class="showcase-grid">
+      <div class="showcase-card fade-up delay-1">
+        <img src="money management.png" alt="Money management strategy" onerror="this.src='https://placehold.co/800x500/e8f4ff/0d4f8c?text=Strategic+Wealth+Management'; this.onerror=null;">
+        <div class="showcase-content">
+          <h3>Strategic Wealth Architecture</h3>
+          <p>Our disciplined approach integrates asset allocation, risk assessment, and long-term capital appreciation. We tailor portfolios to navigate market cycles with confidence.</p>
+        </div>
+      </div>
+      <div class="showcase-card fade-up delay-2">
+        <img src="process.jpg" alt="Investment process" onerror="this.src='https://placehold.co/800x500/e8f4ff/0d4f8c?text=Research+Driven+Process'; this.onerror=null;">
+        <div class="showcase-content">
+          <h3>Research-Backed Process</h3>
+          <p>From due diligence to ongoing monitoring, we follow a rigorous investment framework designed to protect and grow your capital through transparency and expertise.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main 8 detailed service cards - PROPERLY CONTAINED -->
+    <div class="services-grid">
+      <div class="service-card fade-up delay-1">
+        <div class="service-icon">📊</div>
+        <h3>Portfolio Management</h3>
+        <p>We create and manage customized investment portfolios based on each client's financial goals, risk tolerance, and investment horizon. Our team continuously monitors market conditions and adjusts portfolios to maximize long-term growth opportunities.</p>
+      </div>
+      <div class="service-card fade-up delay-2">
+        <div class="service-icon">🏦</div>
+        <h3>Wealth Management</h3>
+        <p>Comprehensive financial solutions designed to help individuals and families preserve, grow, and transfer wealth effectively. We provide strategic guidance for both short-term and long-term financial success.</p>
+      </div>
+      <div class="service-card fade-up delay-3">
+        <div class="service-icon">📈</div>
+        <h3>Investment Advisory</h3>
+        <p>Professional market insights and investment recommendations backed by research and analysis. Our advisors help clients make informed decisions in changing market conditions.</p>
+      </div>
+      <div class="service-card fade-up delay-4">
+        <div class="service-icon">🎯</div>
+        <h3>Retirement Planning</h3>
+        <p>Build a secure future with personalized retirement strategies. We help clients estimate retirement needs, manage retirement investments, and create sustainable income plans.</p>
+      </div>
+      <div class="service-card fade-up delay-1">
+        <div class="service-icon">📋</div>
+        <h3>Financial Planning</h3>
+        <p>A holistic approach to managing finances, including savings strategies, investment planning, wealth accumulation, and financial goal setting.</p>
+      </div>
+      <div class="service-card fade-up delay-2">
+        <div class="service-icon">⚠️</div>
+        <h3>Risk Assessment & Management</h3>
+        <p>Every investment carries risk. We evaluate risk exposure and develop diversified strategies designed to protect capital while pursuing growth opportunities.</p>
+      </div>
+      <div class="service-card fade-up delay-3">
+        <div class="service-icon">📦</div>
+        <h3>Mutual Fund Investment Solutions</h3>
+        <p>Access professionally managed investment funds designed to suit different risk profiles and financial objectives, from conservative income generation to long-term capital appreciation.</p>
+      </div>
+      <div class="service-card fade-up delay-4">
+        <div class="service-icon">🏢</div>
+        <h3>Corporate Investment Solutions</h3>
+        <p>Tailored investment and treasury management services for businesses seeking efficient capital allocation and financial growth opportunities.</p>
+      </div>
+    </div>
+
+    <!-- Why Choose Moms section -->
+    <div class="why-choose fade-up">
+      <h2>Why Choose Moms Investment Management Fund?</h2>
+      <div class="features-grid">
+        <div class="feature-badge">✔️ Experienced Investment Professionals</div>
+        <div class="feature-badge">📊 Research-Driven Investment Strategies</div>
+        <div class="feature-badge">📄 Transparent Reporting & Communication</div>
+        <div class="feature-badge">👥 Client-Focused Wealth Solutions</div>
+        <div class="feature-badge">🌱 Long-Term Growth Approach</div>
+        <div class="feature-badge">🛡️ Strong Risk Management Framework</div>
+      </div>
+    </div>
+
+    <!-- Small Service Cards (additional attractive row) -->
+    <div class="mini-services">
+      <div class="mini-card fade-up delay-1">
+        <h4>💰 Wealth Management</h4>
+        <p>Helping clients build, protect, and grow their wealth through strategic financial planning.</p>
+      </div>
+      <div class="mini-card fade-up delay-2">
+        <h4>📁 Portfolio Management</h4>
+        <p>Customized investment portfolios aligned with your financial goals and risk profile.</p>
+      </div>
+      <div class="mini-card fade-up delay-3">
+        <h4>📈 Investment Advisory</h4>
+        <p>Professional guidance backed by research, market analysis, and industry expertise.</p>
+      </div>
+      <div class="mini-card fade-up delay-4">
+        <h4>🎯 Retirement Planning</h4>
+        <p>Creating sustainable financial strategies for a secure retirement.</p>
+      </div>
+      <div class="mini-card fade-up delay-1">
+        <h4>🛡️ Risk Management</h4>
+        <p>Protecting investments through diversification and disciplined portfolio oversight.</p>
+      </div>
+      <div class="mini-card fade-up delay-2">
+        <h4>📐 Financial Planning</h4>
+        <p>Developing personalized roadmaps to achieve long-term financial success.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-col">
+      <h4>Contact Info</h4>
+      <ul class="footer-contact">
+        <li>Pulchowk, Lalitpur, Nepal</li>
+        <li>info@momsinvestment.com</li>
+        <li>01-5450610</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Opening Time</h4>
+      <p>Sun – Fri: 09.00 am to 06.00 pm</p>
+      <p>Saturday: By appointment</p>
+    </div>
+    <div class="footer-col">
+      <h4>Our Services</h4>
+      <ul class="footer-services">
+        <li>Wealth Management</li>
+        <li>Estate Planning</li>
+        <li>Corporate Treasury</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Newsletter</h4>
+      <p>Subscribe for quick tips, investment insight, and timely updates.</p>
+      <div class="newsletter footer-newsletter">
+        <input type="email" placeholder="Enter your email" id="newsletterEmail">
+        <button id="newsletterBtn">Sign Up</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-marquee">
+    <div class="marquee-track">
+      <div class="marquee-group">
+        <span>Reg No: 224144/076/077</span>
+        <span>Vat No: 609623709</span>
+        <span>Pulchowk, Lalitpur</span>
+        <span>Ph: 01-5450610</span>
+      </div>
+      <div class="marquee-group" aria-hidden="true">
+        <span>Reg No: 224144/076/077</span>
+        <span>Vat No: 609623709</span>
+        <span>Pulchowk, Lalitpur</span>
+        <span>Ph: 01-5450610</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container footer-note">
+    <p>Moms Investment Management Fund delivers reliable wealth management solutions with a strong focus on transparency, safety, and long-term growth for families and businesses in Nepal.</p>
+  </div>
+
+  <div class="container footer-bottom">
+    <span>© Moms Investment Management Fund. All rights reserved.</span>
+    <span class="footer-credit">Designed By Ayusha Poudel</span>
+  </div>
+</footer>
+
+<div id="toastMsg" class="toast-msg">✨ Thanks for subscribing!</div>
+
+<script>
+  // Intersection Observer for fade-up animations on scroll
+  const fadeElements = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: "0px 0px -10px 0px" });
+  
+  fadeElements.forEach(el => observer.observe(el));
+  
+  // also trigger any visible on load
+  window.addEventListener('load', () => {
+    fadeElements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 50) {
+        el.classList.add('visible');
+        observer.unobserve(el);
+      }
+    });
+  });
+  
+  // toast helper
+  const toast = document.getElementById('toastMsg');
+  function showToast(msg) {
+    toast.textContent = msg;
+    toast.style.opacity = '1';
+    setTimeout(() => { toast.style.opacity = '0'; }, 2800);
+  }
+  
+  // newsletter subscription
+  const newsletterBtn = document.getElementById('newsletterBtn');
+  const newsletterInput = document.getElementById('newsletterEmail');
+  if (newsletterBtn && newsletterInput) {
+    newsletterBtn.addEventListener('click', () => {
+      const email = newsletterInput.value.trim();
+      if (!email || !email.includes('@')) {
+        showToast('📧 Please enter a valid email address');
+        return;
+      }
+      showToast('📩 Subscribed! You’ll receive investment insights.');
+      newsletterInput.value = '';
+    });
+  }
+  
+  // Fix any broken images with fallback + add smooth hover
+  const allImages = document.querySelectorAll('img');
+  allImages.forEach(img => {
+    img.addEventListener('error', function() {
+      if (!this.dataset.fallback) {
+        this.dataset.fallback = 'true';
+        this.src = 'data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 400 250%27%3E%3Crect width=%27400%27 height=%27250%27 fill=%27%23e8f4ff%27/%3E%3Ctext x=%2750%27 y=%27130%27 fill=%27%230d4f8c%27 font-size=%2716%27%3EInvestment%20Insights%3C/text%3E%3C/svg%3E';
+      }
+    });
+  });
+</script>
+</body>
+</html>
