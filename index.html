@@ -2,13 +2,922 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Moms Investment Management Funds Pvt. Ltd.</title>
-  <meta name="description" content="Professional investment management services in Nepal. Safe, transparent, and growth-focused financial solutions.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Moms Investment Management Fund | Wealth with Integrity</title>
+  <meta name="description" content="Professional investment management services in Nepal. Safe, transparent, and growth-focused financial solutions for families and enterprises.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ----- reset & base ----- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Nunito Sans', sans-serif;
+      background: linear-gradient(180deg, #f5faff 0%, #eef6ff 48%, #ffffff 100%);
+      color: #0f2f55;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    :root {
+      color-scheme: light;
+      --brand-blue: #00c2ff;
+      --brand-navy: #0d4f8c;
+      --brand-soft: #e8f9ff;
+      --brand-muted: #5b708d;
+      --brand-orange: #ff7f2e;
+      --surface: #ffffff;
+      --surface-soft: #f3f9ff;
+      --accent-surface: #d9fee5;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: 0 auto;
+    }
+
+    /* buttons */
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: all .25s ease;
+      text-decoration: none;
+    }
+
+    .button-primary {
+      background: var(--brand-navy);
+      color: #ffffff;
+      padding: 16px 28px;
+      box-shadow: 0 18px 40px rgba(0, 72, 126, .18);
+    }
+
+    .button-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 44px rgba(0, 72, 126, .22);
+    }
+
+    .button-secondary,
+    .button-outline {
+      border: 1px solid rgba(13, 47, 86, .18);
+      background: rgba(232, 249, 255, .95);
+      color: var(--brand-navy);
+      padding: 16px 28px;
+    }
+
+    .button-secondary:hover,
+    .button-outline:hover {
+      background: rgba(232, 249, 255, 1);
+    }
+
+    /* topbar */
+    .topbar {
+      background: rgba(255, 255, 255, 0.98);
+      border-bottom: 1px solid rgba(0, 164, 228, .14);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+
+    .topbar-info {
+      display: flex;
+      justify-content: center;
+      gap: 26px;
+      padding: 10px 0 8px;
+      font-size: 12px;
+      color: var(--brand-muted);
+      background: var(--brand-soft);
+      flex-wrap: wrap;
+      row-gap: 6px;
+    }
+
+    .topbar-info span {
+      white-space: nowrap;
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 16px 0;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .brand-logo {
+      width: 200px;
+      height: auto;
+      display: block;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--brand-blue);
+      white-space: normal;
+      line-height: 1.2;
+    }
+
+    /* desktop navigation */
+    .topbar-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .topbar-nav a {
+      color: var(--brand-navy);
+      font-weight: 600;
+      font-size: 1.2rem;
+      padding: 8px 0;
+    }
+
+    /* mobile menu button (hamburger/X) */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      position: relative;
+      z-index: 200;
+      flex-shrink: 0;
+    }
+
+    .mobile-menu-btn span {
+      display: block;
+      width: 25px;
+      height: 2px;
+      background: var(--brand-navy);
+      margin: 6px auto;
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+
+    /* transform hamburger to X when open */
+    .mobile-menu-btn.open span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    .mobile-menu-btn.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .mobile-menu-btn.open span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* mobile nav container */
+    .mobile-nav-container {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(16px);
+      z-index: 150;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      padding: 2rem;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .mobile-nav-container.open {
+      transform: translateX(0);
+      display: flex;
+    }
+
+    .mobile-nav-container a {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--brand-navy);
+      padding: 12px;
+      text-align: center;
+      width: 100%;
+      border-bottom: 1px solid rgba(0, 164, 228, 0.2);
+    }
+
+    .mobile-nav-container .mobile-cta {
+      margin-top: 20px;
+    }
+
+    /* Mobile-specific: logo+text stacked vertically, hamburger always on right */
+    @media (max-width: 768px) {
+      .topbar-nav {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
+      .topbar-inner {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .brand {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+      .brand-logo {
+        width: 165px;
+      }
+      .brand-name {
+        font-size: 14px;
+        letter-spacing: 0.05em;
+        max-width: 180px;
+      }
+      .brand-text {
+        text-align: left;
+      }
+    }
+
+    /* Hero stacking — always vertical, media card below */
+    .hero.hero-full .hero-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .hero-media {
+      display: block !important;
+      width: 100%;
+    }
+
+    .hero-media .media-card {
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+    }
+
+    .hero {
+      display: block;
+      width: 100%;
+      padding: 0;
+    }
+
+    .hero.hero-full {
+      position: relative;
+      min-height: auto;
+      background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.18) 35%, rgba(255, 255, 255, 0) 58%),
+        url('https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=1600&q=80');
+      background-size: cover;
+      background-position: center right;
+      background-repeat: no-repeat;
+      padding: 60px 0 60px;
+    }
+
+    .hero.hero-full::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, .20), rgba(255, 255, 255, 0));
+      pointer-events: none;
+    }
+
+    .hero-copy {
+      background: rgba(255, 255, 255, 0.96);
+      padding: 40px 28px;
+      border-radius: 40px;
+      box-shadow: 0 36px 110px rgba(15, 47, 86, .12);
+      max-width: 100%;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      margin-bottom: 20px;
+      color: var(--brand-blue);
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-size: .85rem;
+    }
+
+    .hero-copy h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2.2rem, 7vw, 5rem);
+      line-height: 1.1;
+      margin-bottom: 20px;
+      color: #0f2f55;
+      font-weight: 800;
+    }
+
+    .hero-text {
+      font-size: 1rem;
+      color: #34415d;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions-right {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions-right .button-primary,
+    .hero-actions-right .button-outline {
+      min-width: 160px;
+      padding: 14px 24px;
+    }
+
+    .hero-highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .hero-highlights span {
+      background: rgba(218, 238, 255, .95);
+      color: var(--brand-navy);
+      padding: 12px 20px;
+      border-radius: 999px;
+      font-size: .9rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    /* strategy card */
+    .strategy-card {
+      margin-top: 18px;
+      background: var(--surface);
+      border: 1px solid rgba(0, 164, 228, .12);
+      border-radius: 28px;
+      padding: 24px 22px;
+      max-width: 100%;
+      box-shadow: 0 18px 44px rgba(15, 47, 86, .08);
+    }
+
+    .strategy-top {
+      margin-bottom: 20px;
+    }
+
+    .pill {
+      background: var(--brand-soft);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      color: var(--brand-navy);
+      display: inline-block;
+    }
+
+    .strategy-top p {
+      font-size: 1rem;
+      color: #2f4f70;
+      margin-top: 10px;
+    }
+
+    .button-strategy {
+      width: 100%;
+      border: 0;
+      background: var(--brand-orange);
+      color: #fff;
+      font-weight: 700;
+      border-radius: 16px;
+      padding: 14px 18px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .button-strategy:hover {
+      background: #ff913f;
+    }
+
+    .strategy-card select {
+      width: 100%;
+      border-radius: 14px;
+      padding: 12px 14px;
+      font: inherit;
+      border: 1px solid rgba(0, 164, 228, .22);
+      background: rgba(0, 164, 228, .06);
+      color: #26455f;
+      margin-bottom: 16px;
+    }
+
+    .media-card {
+      background: rgba(255, 255, 255, 0.98);
+      border: 1px solid rgba(255, 255, 255, .82);
+      border-radius: 34px;
+      box-shadow: 0 28px 80px rgba(15, 47, 86, .16);
+      padding: 28px 24px;
+      backdrop-filter: blur(18px);
+    }
+
+    .media-pretitle {
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: .22em;
+      font-size: .7rem;
+      color: var(--brand-blue);
+      margin-bottom: 14px;
+    }
+
+    .media-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+      color: var(--brand-navy);
+    }
+
+    .media-card p {
+      color: #4b627b;
+      line-height: 1.7;
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+    }
+
+    .media-feature-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .media-feature-list span {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      background: rgba(232, 249, 255, .95);
+      border-radius: 16px;
+      color: var(--brand-navy);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    /* stats */
+    .stats-wrap {
+      background: rgba(232, 249, 255, .85);
+      color: var(--brand-navy);
+      margin-top: 40px;
+      padding: 48px 0;
+      border-top: 1px solid rgba(0, 164, 228, .12);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .stat-item {
+      padding: 24px 16px;
+      text-align: center;
+      background: var(--surface);
+      border-radius: 28px;
+      box-shadow: 0 24px 60px rgba(0, 92, 172, .08);
+      border: 1px solid rgba(0, 164, 228, .12);
+    }
+
+    .stat-value {
+      font-size: 1.7rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: .85rem;
+      opacity: .88;
+    }
+
+    /* philosophy section */
+    .section-block {
+      padding: 50px 0;
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .section-kicker {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      color: var(--brand-blue);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .section-head h2 {
+      font-size: 1.8rem;
+      line-height: 1.2;
+      color: var(--brand-navy);
+    }
+
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .philosophy-card {
+      border-radius: 20px;
+      padding: 22px;
+      min-height: auto;
+      box-shadow: 0 12px 30px rgba(0, 92, 172, .08);
+      background: var(--surface);
+      transition: background .25s ease, color .25s ease;
+    }
+
+    .mini-pill {
+      background: var(--brand-soft);
+      padding: 5px 12px;
+      border-radius: 60px;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      display: inline-block;
+      color: var(--brand-navy);
+      margin-bottom: 10px;
+    }
+
+    .philosophy-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.2rem;
+      margin: 10px 0 10px;
+      color: #0f2f55;
+    }
+
+    .philosophy-card p {
+      font-size: .9rem;
+      color: #1f3a57;
+    }
+
+    .philosophy-card ul {
+      margin: 12px 0 0 18px;
+      color: #1f3a57;
+      font-size: .85rem;
+    }
+
+    .philosophy-card:hover {
+      background: var(--brand-blue);
+      color: #fff;
+    }
+
+    .philosophy-card:hover p,
+    .philosophy-card:hover ul,
+    .philosophy-card:hover li {
+      color: #f2f8ff;
+    }
+
+    .philosophy-card:hover .mini-pill {
+      background: rgba(255, 255, 255, .95);
+      color: var(--brand-navy);
+    }
+
+    /* stewardship */
+    .stewardship {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 32px;
+      align-items: center;
+      padding: 50px 0;
+    }
+
+    .stewardship-left h2 {
+      font-size: 1.9rem;
+      margin-bottom: 20px;
+      color: var(--brand-navy);
+    }
+
+    .feature-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .feature-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      background: var(--surface);
+      padding: 16px;
+      border-radius: 18px;
+      box-shadow: 0 14px 28px rgba(0, 92, 172, .08);
+    }
+
+    .feature-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: rgba(0, 164, 228, .15);
+      color: var(--brand-blue);
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      flex: 0 0 auto;
+    }
+
+    .feature-item h3 {
+      font-size: 0.95rem;
+      color: #0f2f55;
+    }
+
+    .stewardship-card {
+      position: relative;
+    }
+
+    .stewardship-card img {
+      width: 100%;
+      height: auto;
+      max-height: 500px;
+      object-fit: cover;
+      object-position: center 20%;
+      border-radius: 24px;
+      display: block;
+      box-shadow: 0 16px 38px rgba(16, 35, 63, .12);
+    }
+
+    .overlay-card {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      background: rgba(20, 43, 74, .74);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      border-radius: 18px;
+      padding: 14px;
+    }
+
+    .overlay-card p {
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+    }
+
+    .overlay-card span {
+      font-size: 0.8rem;
+      opacity: .9;
+    }
+
+    /* footer */
+    .footer {
+      background: #f6f6f6;
+      color: #0f2f55;
+      padding: 50px 0 24px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 32px;
+      padding-bottom: 32px;
+    }
+
+    .footer h4 {
+      margin-bottom: 16px;
+      color: var(--brand-navy);
+      font-size: 1.1rem;
+    }
+
+    .footer-contact,
+    .footer-services {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-contact li,
+    .footer-services li {
+      margin-bottom: 12px;
+      color: #5b708d;
+      font-size: .9rem;
+    }
+
+    .footer-contact li::before {
+      content: '•';
+      display: inline-block;
+      width: 1em;
+      color: var(--brand-blue);
+    }
+
+    .footer-services li {
+      position: relative;
+      padding-left: 18px;
+    }
+
+    .footer-services li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--brand-blue);
+    }
+
+    .footer-col p {
+      color: #5b708d;
+      line-height: 1.7;
+      margin-bottom: 16px;
+      font-size: 0.9rem;
+    }
+
+    .footer-newsletter {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .footer-newsletter input {
+      flex: 1;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid #d4e2f0;
+      outline: none;
+      font-size: .9rem;
+    }
+
+    .footer-newsletter button {
+      border: 0;
+      border-radius: 999px;
+      min-width: 100px;
+      padding: 12px 18px;
+      background: var(--brand-blue);
+      color: #fff;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .footer-newsletter button:hover {
+      background: #0d9fdf;
+    }
+
+    .footer-marquee {
+      overflow: hidden;
+      background: var(--brand-blue);
+      margin-top: 32px;
+    }
+
+    .marquee-track {
+      display: flex;
+      animation: scroll 18s linear infinite;
+      padding: 12px 0;
+    }
+
+    .marquee-group {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      min-width: 100%;
+    }
+
+    .marquee-group span {
+      color: #fff;
+      white-space: nowrap;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .footer-note {
+      border-top: 1px solid #dbe6f0;
+      padding-top: 24px;
+    }
+
+    .footer-note p {
+      margin: 0;
+      color: #66788f;
+      line-height: 1.7;
+      font-size: 0.9rem;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      color: #6b7b90;
+      font-size: .85rem;
+      border-top: 1px solid #dbe6f0;
+      padding-top: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-credit {
+      color: #5b708d;
+      font-style: italic;
+    }
+
+    .sr-only {
+      position: absolute;
+      left: -9999px;
+    }
+
+    /* responsive adjustments */
+    @media (max-width: 992px) {
+      .stats-grid, .philosophy-grid, .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .stewardship {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .hero-copy {
+        padding: 32px 24px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .stats-grid, .philosophy-grid, .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-copy h1 {
+        font-size: 1.8rem;
+      }
+      .section-head h2, .stewardship-left h2 {
+        font-size: 1.6rem;
+      }
+      .hero.hero-full {
+        padding: 40px 0;
+      }
+      .stat-item {
+        padding: 18px;
+      }
+      .media-card {
+        padding: 22px 18px;
+      }
+      .media-card h3 {
+        font-size: 1.3rem;
+      }
+      .footer-newsletter {
+        flex-direction: column;
+      }
+      .footer-newsletter button {
+        width: 100%;
+      }
+      .footer-bottom {
+        justify-content: center;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-copy {
+        padding: 24px 18px;
+      }
+      .button-primary, .button-outline {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+      }
+      .strategy-card {
+        padding: 20px 16px;
+      }
+      .feature-item {
+        padding: 12px;
+      }
+      .feature-item h3 {
+        font-size: 0.9rem;
+      }
+      .overlay-card {
+        position: relative;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin-top: 12px;
+        border-radius: 18px;
+      }
+      .stewardship-card img {
+        max-height: 350px;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="topbar">
@@ -17,24 +926,44 @@
       <span>Vat No: 609623709</span>
       <span>Pulchowk, Lalitpur · Ph: 01-5450610</span>
     </div>
-
     <div class="container topbar-inner">
-      <a href="index.html" class="brand">
-        <img src="images/logo.png" alt="Moms Investment logo" class="brand-logo" />
+      <a href="#" class="brand">
+        <img class="brand-logo" src="images/logo.png" alt="Moms Investment Logo">
         <div class="brand-text">
-          <span class="brand-name">MOMS INVESTMENT MANAGEMENT FUND PVT.LTD</span>
+          <!-- <span class="brand-name">MOMS INVESTMENT MANAGEMENT FUND PVT.LTD</span> -->
         </div>
       </a>
-
+      
+      <!-- Desktop navigation -->
       <nav class="topbar-nav">
-        <a href="index.html">Home</a>
+        <a href="">Home</a>
         <a href="about.html">About Us</a>
         <a href="services.html">Services</a>
         <a href="team.html">Meet The Team</a>
         <a href="contact.html">Contact Us</a>
       </nav>
+
+      <!-- Hamburger/X button (mobile only) -->
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Mobile fullscreen navigation container -->
+    <div class="mobile-nav-container" id="mobileNavContainer">
+      <a href="#">Home</a>
+      <a href="#">About Us</a>
+      <a href="#">Services</a>
+      <a href="#">Meet The Team</a>
+      <a href="#">Contact Us</a>
+      <div class="mobile-cta">
+        <a class="button button-primary" href="#" style="width: 100%; text-align: center; color: #ffffff;">Get in Touch</a>
+      </div>
     </div>
   </header>
+
   <main>
     <section class="hero hero-full">
       <div class="container hero-inner">
@@ -42,52 +971,29 @@
           <p class="hero-kicker">Trusted investment partner</p>
           <h1>Managing Your Wealth with Confidence</h1>
           <p class="hero-text">We provide transparent investment strategies, professional fund management, and caring financial guidance to help you grow your wealth over time.</p>
-
           <div class="hero-actions-right">
-            <a class="button button-primary" href="services.html">Our Services</a>
-            <a class="button button-outline" href="contact.html">Talk to Us</a>
+            <a class="button button-primary" href="#">Our Services</a>
+            <a class="button button-outline" href="#">Talk to Us</a>
           </div>
-
           <div class="hero-highlights">
             <span>Trusted by 12,000+ investors</span>
             <span>Long-term growth focus</span>
             <span>Personalized strategies</span>
           </div>
-
-          <div class="strategy-card">
-            <div class="strategy-top">
-              <span class="pill">FINANCIAL GUIDANCE</span>
-              <p>How can we help you today?</p>
-            </div>
-
-            <label class="sr-only" for="goal">Select an objective</label>
-            <select id="goal">
-              <option>Select an objective</option>
-              <option>Grow wealth</option>
-              <option>Retirement planning</option>
-              <option>Save for education</option>
-              <option>Preserve capital</option>
-            </select>
-
-            <button type="button" class="button-strategy">Personalize My Strategy</button>
-          </div>
         </div>
-
         <aside class="hero-media">
           <div class="media-card">
             <p class="media-pretitle">Client Asset Security</p>
             <h3>Bank-grade encryption protocol 4.0</h3>
             <p>Every portfolio is protected with industry-leading safeguards and professional monitoring.</p>
             <div class="media-feature-list">
-              <span>Secure account access</span>
-              <span>Real-time portfolio insights</span>
+              <span>🔒 Secure account access</span>
+              <span>📊 Real-time portfolio insights</span>
             </div>
           </div>
         </aside>
       </div>
     </section>
-
-    </main>
 
     <section class="stats-wrap">
       <div class="container stats-grid">
@@ -111,98 +1017,46 @@
         <p class="section-kicker">Investment Philosophy and Services</p>
         <h2>Personalized investment solutions designed around your financial goals and long-term success.</h2>
       </div>
-
       <div class="philosophy-grid">
         <article class="philosophy-card light">
           <span class="mini-pill">SECURE INVESTING</span>
           <h3>Building Wealth with Confidence</h3>
           <p>Helping investors preserve and grow their capital through disciplined investment management, thorough market research, and a long-term investment approach.</p>
-          <ul>
-            <li>Capital preservation</li>
-            <li>Professional fund management</li>
-            <li>Risk-conscious investing</li>
-          </ul>
+          <ul><li>Capital preservation</li><li>Professional fund management</li><li>Risk-conscious investing</li></ul>
         </article>
-
         <article class="philosophy-card dark">
           <span class="mini-pill">GROWTH OPPORTUNITIES</span>
           <h3>Strategic Investment Solutions</h3>
           <p>Identifying promising investment opportunities across diverse sectors to help investors achieve sustainable financial growth and long-term value creation.</p>
-          <ul style="color: #d8e5f3;">
-            <li>Diversified investment approach</li>
-            <li>Growth-focused strategies</li>
-            <li>Market-driven opportunities</li>
-          </ul>
+          <ul><li>Diversified investment approach</li><li>Growth-focused strategies</li><li>Market-driven opportunities</li></ul>
         </article>
-
         <article class="philosophy-card outline">
           <span class="mini-pill">CLIENT-CENTERED</span>
           <h3>Tailored Financial Planning</h3>
           <p>Every investor has unique goals. We provide personalized investment guidance and customized solutions designed to align with your financial objectives.</p>
-          <ul>
-            <li>Personalized investment plans</li>
-            <li>Goal-oriented strategies</li>
-            <li>Dedicated investor support</li>
-          </ul>
+          <ul><li>Personalized investment plans</li><li>Goal-oriented strategies</li><li>Dedicated investor support</li></ul>
         </article>
       </div>
     </section>
 
-    <section class="container section-block stewardship">
+    <section class="container stewardship">
       <div class="stewardship-left">
         <span class="mini-pill">WHY US</span>
         <h2>Why Choose Us</h2>
-
         <div class="feature-list">
-          <div class="feature-item">
-            <div class="feature-icon">◷</div>
-            <div>
-              <h3>Professional and experienced investment management</h3>
-            </div>
-          </div>
-
-          <div class="feature-item">
-            <div class="feature-icon">◫</div>
-            <div>
-              <h3>Transparent and client-focused approach</h3>
-            </div>
-          </div>
-
-          <div class="feature-item">
-            <div class="feature-icon">◔</div>
-            <div>
-              <h3>Research-driven investment decisions</h3>
-            </div>
-          </div>
-
-          <div class="feature-item">
-            <div class="feature-icon">◔</div>
-            <div>
-              <h3>Strong commitment to risk management</h3>
-            </div>
-          </div>
-
-          <div class="feature-item">
-            <div class="feature-icon">◔</div>
-            <div>
-              <h3>Long-term wealth creation strategies</h3>
-            </div>
-          </div>
-
-          <div class="feature-item">
-            <div class="feature-icon">◔</div>
-            <div>
-              <h3>Dedicated support for every investor</h3>
-            </div>
-          </div>
+          <div class="feature-item"><div class="feature-icon">◷</div><div><h3>Professional and experienced investment management</h3></div></div>
+          <div class="feature-item"><div class="feature-icon">◫</div><div><h3>Transparent and client-focused approach</h3></div></div>
+          <div class="feature-item"><div class="feature-icon">◔</div><div><h3>Research-driven investment decisions</h3></div></div>
+          <div class="feature-item"><div class="feature-icon">◔</div><div><h3>Strong commitment to risk management</h3></div></div>
+          <div class="feature-item"><div class="feature-icon">◔</div><div><h3>Long-term wealth creation strategies</h3></div></div>
+          <div class="feature-item"><div class="feature-icon">◔</div><div><h3>Dedicated support for every investor</h3></div></div>
         </div>
       </div>
-
       <div class="stewardship-card">
-        <img src="images/ceo.jpeg" alt="CEO" />
+        <img src="images/CEO.jpeg" alt="CEO portrait">
         <div class="overlay-card">
           <p>Our mission is to deliver exceptional value and sustainable growth for every investor we serve.</p>
-          <span>— CEO</span>
+          <span>— CEO, Moms Investment</span>
         </div>
       </div>
     </section>
@@ -210,67 +1064,57 @@
 
   <footer class="footer">
     <div class="container footer-grid">
-      <div class="footer-col">
-        <h4>Contact Info</h4>
-        <ul class="footer-contact">
-          <li>Pulchowk, Lalitpur, Nepal</li>
-          <li>info@momsinvestment.com</li>
-          <li>01-5450610</li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Opening Time</h4>
-        <p>Sun – Fri: 09.00 am to 06.00 pm</p>
-        <p>Saturday: By appointment</p>
-      </div>
-
-      <div class="footer-col">
-        <h4>Our Services</h4>
-        <ul class="footer-services">
-          <li>Wealth Management</li>
-          <li>Estate Planning</li>
-          <li>Corporate Treasury</li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Newsletter</h4>
-        <p>Subscribe for quick tips, investment insight, and timely updates.</p>
-        <div class="newsletter footer-newsletter">
-          <input type="email" placeholder="Enter your email" />
-          <button>Sign Up</button>
-        </div>
-      </div>
+      <div class="footer-col"><h4>Contact Info</h4><ul class="footer-contact"><li>Pulchowk, Lalitpur, Nepal</li><li>info@momsinvestment.com</li><li>01-5450610</li></ul></div>
+      <div class="footer-col"><h4>Opening Time</h4><p>Sun – Fri: 09.00 am to 06.00 pm</p><p>Saturday: By appointment</p></div>
+      <div class="footer-col"><h4>Our Services</h4><ul class="footer-services"><li>Wealth Management</li><li>Estate Planning</li><li>Corporate Treasury</li></ul></div>
+      <div class="footer-col"><h4>Newsletter</h4><p>Subscribe for quick tips, investment insight, and timely updates.</p><div class="footer-newsletter"><input type="email" placeholder="Enter your email" id="newsEmail"><button id="newsBtn">Sign Up</button></div></div>
     </div>
-
-    <div class="footer-marquee">
-      <div class="marquee-track">
-        <div class="marquee-group">
-          <span>Reg No: 224144/076/077</span>
-          <span>Vat No: 609623709</span>
-          <span>Pulchowk, Lalitpur</span>
-          <span>Ph: 01-5450610</span>
-        </div>
-        <div class="marquee-group" aria-hidden="true">
-          <span>Reg No: 224144/076/077</span>
-          <span>Vat No: 609623709</span>
-          <span>Pulchowk, Lalitpur</span>
-          <span>Ph: 01-5450610</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="container footer-note">
-      <p>Moms Investment Management Fund delivers reliable wealth management solutions with a strong focus on transparency, safety, and long-term growth for families and businesses in Nepal.</p>
-    </div>
-
-    <div class="container footer-bottom">
-      <span>© Moms Investment Management Fund. All rights reserved.</span>
-      <span class="footer-credit">Designed By Ayusha Poudel</span>
-    </div>
+    <div class="footer-marquee"><div class="marquee-track"><div class="marquee-group"><span>Reg No: 224144/076/077</span><span>Vat No: 609623709</span><span>Pulchowk, Lalitpur</span><span>Ph: 01-5450610</span></div><div class="marquee-group" aria-hidden="true"><span>Reg No: 224144/076/077</span><span>Vat No: 609623709</span><span>Pulchowk, Lalitpur</span><span>Ph: 01-5450610</span></div></div></div>
+    <div class="container footer-note"><p>Moms Investment Management Fund delivers reliable wealth management solutions with a strong focus on transparency, safety, and long-term growth for families and businesses in Nepal.</p></div>
+    <div class="container footer-bottom"><span>© Moms Investment Management Fund. All rights reserved.</span><span class="footer-credit">Designed By Ayusha Poudel</span></div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script>
+    (function() {
+      // Hamburger/X menu toggle
+      const menuBtn = document.getElementById('mobileMenuBtn');
+      const mobileNav = document.getElementById('mobileNavContainer');
+      if (menuBtn && mobileNav) {
+        menuBtn.addEventListener('click', () => {
+          mobileNav.classList.toggle('open');
+          menuBtn.classList.toggle('open'); // toggle X class
+          if (mobileNav.classList.contains('open')) {
+            document.body.style.overflow = 'hidden';
+          } else {
+            document.body.style.overflow = '';
+          }
+        });
+        // Close menu when clicking any link inside the mobile nav
+        const navLinks = mobileNav.querySelectorAll('a');
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            mobileNav.classList.remove('open');
+            menuBtn.classList.remove('open');
+            document.body.style.overflow = '';
+          });
+        });
+      }
+
+      // newsletter signup
+      const newsBtn = document.getElementById('newsBtn');
+      const newsEmail = document.getElementById('newsEmail');
+      if (newsBtn) {
+        newsBtn.addEventListener('click', () => {
+          const email = newsEmail.value.trim();
+          if (!email || !email.includes('@')) {
+            alert('Please enter a valid email address.');
+            return;
+          }
+          alert(`📩 Subscribed! ${email} will receive market insights and updates.`);
+          newsEmail.value = '';
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
