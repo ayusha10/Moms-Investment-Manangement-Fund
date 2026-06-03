@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Contact Us | Moms Investment Management Fund Pvt. Ltd.</title>
+  <meta name="description" content="Connect with Moms Investment Management Fund — expert advisors, secure consultation, and global opportunities. Reach our team in Lalitpur for wealth management inquiries." />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Nunito Sans', sans-serif;
+      background: linear-gradient(180deg, #f5faff 0%, #eef6ff 48%, #ffffff 100%);
+      color: #0f2f55;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    :root {
+      color-scheme: light;
+      --brand-blue: #00c2ff;
+      --brand-navy: #0d4f8c;
+      --brand-soft: #e8f9ff;
+      --brand-muted: #5b708d;
+      --brand-orange: #ff7f2e;
+      --surface: #ffffff;
+      --surface-soft: #f3f9ff;
+      --accent-surface: #d9fee5;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    .container {
+      width: min(1180px, 92%);
+      margin: 0 auto;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: all .25s ease;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+    }
+    .button-primary {
+      background: var(--brand-navy);
+      color: #fff;
+      padding: 14px 28px;
+      box-shadow: 0 18px 40px rgba(0, 72, 126, .18);
+    }
+    .button-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 44px rgba(0, 72, 126, .22);
+    }
+    .button-outline {
+      border: 1px solid rgba(13, 47, 86, .18);
+      background: rgba(232, 249, 255, .95);
+      color: var(--brand-navy);
+      padding: 14px 26px;
+    }
+    .button-outline:hover {
+      background: rgba(232, 249, 255, 1);
+    }
+    /* Topbar */
+    .topbar {
+      background: rgba(255, 255, 255, 0.98);
+      border-bottom: 1px solid rgba(0, 164, 228, .14);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+    }
+    .topbar-info {
+      display: flex;
+      justify-content: center;
+      gap: 26px;
+      padding: 10px 0 8px;
+      font-size: 12px;
+      color: var(--brand-muted);
+      background: var(--brand-soft);
+      flex-wrap: wrap;
+    }
+    .topbar-info span {
+      white-space: nowrap;
+    }
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 16px 0;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .brand-logo {
+      width: 96px;
+      height: auto;
+      border-radius: 12px;
+      padding: 6px;
+    }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-name {
+      font-size: 19px;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--brand-blue);
+      white-space: nowrap;
+    }
+    .topbar-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: center;
+    }
+    .topbar-nav a {
+      color: var(--brand-navy);
+      font-weight: 600;
+      font-size: .95rem;
+      padding: 8px 0;
+    }
+    .topbar-nav .button {
+      padding: 10px 22px;
+    }
+    /* ========== ANIMATIONS (POP-UP / FADE-UP ON SCROLL) ========== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.7s cubic-bezier(0.2, 0.9, 0.3, 1.1);
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .delay-1 { transition-delay: 0.08s; }
+    .delay-2 { transition-delay: 0.16s; }
+    .delay-3 { transition-delay: 0.24s; }
+    .delay-4 { transition-delay: 0.32s; }
+    /* Contact page specific */
+    .page-header {
+      background: linear-gradient(135deg, #e2f0ff, #ffffff);
+      padding: 60px 0 40px;
+      text-align: center;
+      border-bottom: 1px solid rgba(0, 164, 228, .12);
+    }
+    .page-header h1 {
+      font-size: 3rem;
+      font-family: 'Montserrat', sans-serif;
+      color: var(--brand-navy);
+      margin-bottom: 12px;
+    }
+    .page-header p {
+      font-size: 1.1rem;
+      color: #3c5670;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin: 64px auto;
+    }
+    .contact-info-card {
+      background: var(--surface);
+      border-radius: 34px;
+      padding: 40px 36px;
+      box-shadow: 0 28px 70px rgba(15, 47, 86, 0.08);
+      border: 1px solid rgba(0, 164, 228, .12);
+    }
+    .contact-info-card h2 {
+      font-size: 1.8rem;
+      margin-bottom: 18px;
+      color: var(--brand-navy);
+    }
+    .contact-details-list {
+      list-style: none;
+      margin: 32px 0 28px;
+    }
+    .contact-details-list li {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 28px;
+      font-size: 1rem;
+      color: #2a496c;
+      font-weight: 500;
+    }
+    .contact-icon {
+      width: 52px;
+      height: 52px;
+      background: rgba(0, 194, 255, 0.12);
+      border-radius: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      color: var(--brand-blue);
+    }
+    .secure-badge {
+      background: var(--brand-soft);
+      border-radius: 28px;
+      padding: 22px;
+      margin-top: 24px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      border: 1px solid rgba(0, 194, 255, .2);
+    }
+    .secure-badge span {
+      font-weight: 700;
+      font-size: .85rem;
+      color: var(--brand-navy);
+    }
+    .consult-card {
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 34px;
+      padding: 40px 36px;
+      box-shadow: 0 28px 70px rgba(15, 47, 86, 0.08);
+      border: 1px solid rgba(0, 164, 228, .12);
+    }
+    .consult-card h3 {
+      font-size: 1.7rem;
+      margin-bottom: 20px;
+      color: var(--brand-navy);
+    }
+    .form-group {
+      margin-bottom: 22px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 16px 20px;
+      border-radius: 24px;
+      border: 1px solid rgba(13, 47, 86, 0.15);
+      font-family: inherit;
+      font-size: 1rem;
+      background: #ffffff;
+      transition: 0.2s;
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--brand-blue);
+      box-shadow: 0 0 0 3px rgba(0, 194, 255, 0.2);
+    }
+    .submit-btn {
+      background: var(--brand-orange);
+      color: white;
+      border: none;
+      width: 100%;
+      padding: 16px;
+      font-weight: 800;
+      border-radius: 44px;
+      font-size: 1.05rem;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 12px 28px rgba(255, 127, 46, 0.2);
+    }
+    .submit-btn:hover {
+      background: #ff8f46;
+      transform: translateY(-2px);
+    }
+    .map-section {
+      margin: 0 auto 70px;
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: 0 20px 45px rgba(15, 47, 86, 0.1);
+      border: 1px solid rgba(0, 164, 228, 0.2);
+    }
+    .map-section iframe {
+      width: 100%;
+      height: 380px;
+      display: block;
+      border: 0;
+    }
+    .contact-highlight {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      background: #ffffffdd;
+      backdrop-filter: blur(8px);
+      border-radius: 28px;
+      padding: 28px 34px;
+      margin: 20px 0 48px;
+      border: 1px solid rgba(0, 164, 228, 0.2);
+    }
+    .highlight-item {
+      text-align: center;
+      flex: 1;
+    }
+    .highlight-number {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--brand-blue);
+    }
+    /* Footer */
+    .footer {
+      background: #ffffff;
+      color: #0f2f55;
+      padding: 60px 0 24px;
+      margin-top: 40px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 32px;
+      padding-bottom: 32px;
+    }
+    .footer h4 {
+      margin-bottom: 18px;
+      color: var(--brand-navy);
+      font-size: 1.15rem;
+    }
+    .footer-contact, .footer-services {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-contact li, .footer-services li {
+      margin-bottom: 14px;
+      color: #5b708d;
+      font-size: .95rem;
+    }
+    .footer-contact li::before {
+      content: '•';
+      display: inline-block;
+      width: 1em;
+      color: var(--brand-blue);
+    }
+    .footer-services li {
+      position: relative;
+      padding-left: 18px;
+    }
+    .footer-services li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--brand-blue);
+    }
+    .footer-col p {
+      color: #5b708d;
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+    .footer-newsletter {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .footer-newsletter input {
+      flex: 1;
+      padding: 14px 18px;
+      border-radius: 999px;
+      border: 1px solid #dce5ef;
+      outline: none;
+      font-size: .95rem;
+      background: #fafcff;
+    }
+    .footer-newsletter button {
+      border: 0;
+      border-radius: 999px;
+      min-width: 100px;
+      padding: 14px 20px;
+      background: var(--brand-blue);
+      color: #fff;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .footer-marquee {
+      overflow: hidden;
+      background: var(--brand-blue);
+      margin: 28px 0 20px;
+    }
+    .marquee-track {
+      display: flex;
+      animation: scroll 18s linear infinite;
+      padding: 14px 0;
+    }
+    .marquee-group {
+      display: flex;
+      gap: 60px;
+      align-items: center;
+      min-width: 100%;
+    }
+    .marquee-group span {
+      color: #fff;
+      white-space: nowrap;
+      font-weight: 700;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .footer-note {
+      border-top: 1px solid #dbe6f0;
+      padding-top: 24px;
+      margin-bottom: 18px;
+    }
+    .footer-note p {
+      margin: 0;
+      color: #66788f;
+      line-height: 1.9;
+    }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      color: #6b7b90;
+      font-size: .9rem;
+      border-top: 1px solid #dbe6f0;
+      padding-top: 18px;
+      flex-wrap: wrap;
+    }
+    @media (max-width: 992px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .topbar-inner { flex-direction: column; align-items: flex-start; }
+      .topbar-nav { margin-top: 6px; flex-wrap: wrap; }
+    }
+    @media (max-width: 640px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .contact-info-card, .consult-card { padding: 28px 20px; }
+      .page-header h1 { font-size: 2.2rem; }
+      .contact-highlight { flex-direction: column; gap: 20px; }
+    }
+    .toast-msg {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #0d4f8c;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 60px;
+      font-weight: 600;
+      z-index: 1000;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-info">
+    <span>Reg No: 224144/076/077</span>
+    <span>Vat No: 609623709</span>
+    <span>Pulchowk, Lalitpur · Ph: 01-5450610</span>
+  </div>
+
+  <div class="container topbar-inner">
+      <a href="index.html" class="brand">
+        <img src="images/logo.png" alt="Moms Investment logo" class="brand-logo" />
+        <div class="brand-text">
+          <span class="brand-name">MOMS INVESTMENT MANAGEMENT FUND PVT.LTD</span>
+        </div>
+      </a>
+    <nav class="topbar-nav">
+      <a href="#">Home</a>
+      <a href="#">About Us</a>
+      <a href="#">Services</a>
+      <a href="#">Meet The Team</a>
+      <a href="#" style="border-bottom:2px solid #00c2ff;">Contact Us</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="page-header fade-up visible">
+    <div class="container">
+      <h1>Connect With Us</h1>
+      <p>Secure global opportunities, expert advisory, and institutional-grade wealth solutions — your journey starts here.</p>
+    </div>
+  </div>
+
+  <div class="container">
+   
+
+    <div class="contact-grid">
+      <div class="contact-info-card fade-up delay-2">
+        <h2>Get in touch</h2>
+        <p style="margin-bottom: 24px; color:#3a5775;">Connecting you with secure global opportunities. Our expert advisors are here to serve you with modern tech and multi-functional services.</p>
+        <ul class="contact-details-list">
+          <li><span class="contact-icon">📍</span> Pulchowk, Lalitpur, Nepal (Main Hub)</li>
+          <li><span class="contact-icon">📞</span> +977 5450610 &nbsp;|&nbsp; +977 9709061020</li>
+          <li><span class="contact-icon">✉️</span> info@momsinvestment.com</li>
+          <li><span class="contact-icon">🕒</span> Sun – Fri: 09:00 am – 06:00 pm</li>
+        </ul>
+        
+        <div style="margin-top: 28px;">
+          <a href="#consult-form" class="button button-primary" style="width:100%; justify-content:center;">Request Secure Consultation →</a>
+        </div>
+      </div>
+
+      <div class="consult-card fade-up delay-3" id="consult-form">
+        <h3>Submit Inquiry</h3>
+        <form id="contactForm">
+          <div class="form-group">
+            <input type="text" id="fullName" placeholder="Your Full Name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" id="email" placeholder="Email Address" required>
+          </div>
+          <div class="form-group">
+            <input type="tel" id="phone" placeholder="Phone Number (e.g., +977 9856321456)" required>
+          </div>
+          <div class="form-group">
+            <select id="interest" required>
+              <option value="" disabled selected>I have an investment request and would like to:</option>
+              <option>Schedule a consultation</option>
+              <option>Explore fund performance</option>
+              <option>Global diversification strategy</option>
+              <option>Request portfolio review</option>
+              <option>General inquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <textarea id="message" placeholder="Message / additional details..."></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send Inquiry →</button>
+          <p style="font-size: 12px; margin-top: 16px; text-align: center; color:#6b7f96;">Your data is protected with 256-bit encryption. We'll respond within 24 hours.</p>
+        </form>
+      </div>
+    </div>
+
+    <div class="map-section fade-up delay-4">
+      <iframe 
+        title="Moms Investment Office Location - Pulchowk, Lalitpur"
+        src="https://maps.google.com/maps?q=Pulchowk%20Lalitpur%20Nepal&t=&z=15&ie=UTF8&iwloc=&output=embed"
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+    
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-col">
+      <h4>Contact Info</h4>
+      <ul class="footer-contact">
+        <li>Pulchowk, Lalitpur, Nepal</li>
+        <li>info@momsinvestment.com</li>
+        <li>01-5450610</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Opening Time</h4>
+      <p>Sun – Fri: 09.00 am to 06.00 pm</p>
+      <p>Saturday: By appointment</p>
+    </div>
+    <div class="footer-col">
+      <h4>Our Services</h4>
+      <ul class="footer-services">
+        <li>Wealth Management</li>
+        <li>Estate Planning</li>
+        <li>Corporate Treasury</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Newsletter</h4>
+      <p>Subscribe for quick tips, investment insight, and timely updates.</p>
+      <div class="newsletter footer-newsletter">
+        <input type="email" placeholder="Enter your email" id="newsletterEmail">
+        <button id="newsletterBtn">Sign Up</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-marquee">
+    <div class="marquee-track">
+      <div class="marquee-group">
+        <span>Reg No: 224144/076/077</span>
+        <span>Vat No: 609623709</span>
+        <span>Pulchowk, Lalitpur</span>
+        <span>Ph: 01-5450610</span>
+      </div>
+      <div class="marquee-group" aria-hidden="true">
+        <span>Reg No: 224144/076/077</span>
+        <span>Vat No: 609623709</span>
+        <span>Pulchowk, Lalitpur</span>
+        <span>Ph: 01-5450610</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container footer-note">
+    <p>Moms Investment Management Fund delivers reliable wealth management solutions with a strong focus on transparency, safety, and long-term growth for families and businesses in Nepal.</p>
+  </div>
+
+  <div class="container footer-bottom">
+    <span>© Moms Investment Management Fund. All rights reserved.</span>
+    <span class="footer-credit">Designed By Ayusha Poudel</span>
+  </div>
+</footer>
+
+<div id="toastMsg" class="toast-msg">✅ Inquiry sent! Our team will reach out shortly.</div>
+
+<script>
+  // INTERSECTION OBSERVER FOR POP-UP / FADE-UP ANIMATIONS ON SCROLL
+  const fadeElements = document.querySelectorAll('.fade-up');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: "0px 0px -20px 0px" });
+  
+  fadeElements.forEach(el => observer.observe(el));
+  
+  // Also check elements already visible on load
+  window.addEventListener('load', () => {
+    fadeElements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 80) {
+        el.classList.add('visible');
+        observer.unobserve(el);
+      }
+    });
+  });
+  
+  // Toast notification
+  const toast = document.getElementById('toastMsg');
+  function showToast(message, isError = false) {
+    toast.textContent = message || "✅ Inquiry sent! Our team will reach out shortly.";
+    toast.style.background = isError ? '#b91c1c' : '#0d4f8c';
+    toast.style.opacity = '1';
+    setTimeout(() => {
+      toast.style.opacity = '0';
+      toast.style.background = '#0d4f8c';
+    }, 3500);
+  }
+  
+  // Contact Form Handler
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('fullName')?.value.trim();
+      const email = document.getElementById('email')?.value.trim();
+      const phone = document.getElementById('phone')?.value.trim();
+      const interest = document.getElementById('interest')?.value;
+      const message = document.getElementById('message')?.value.trim();
+      
+      if (!name || !email || !phone || !interest) {
+        showToast("⚠️ Please fill all required fields (Name, Email, Phone, Inquiry type).", true);
+        return;
+      }
+      if (!email.includes('@') || !email.includes('.')) {
+        showToast("❌ Please provide a valid email address.", true);
+        return;
+      }
+      if (phone.length < 8) {
+        showToast("📞 Please enter a valid phone number.", true);
+        return;
+      }
+      
+      console.log("Contact Inquiry:", { name, email, phone, interest, message });
+      showToast("🔒 Consultation request received! A dedicated advisor will connect within 24 hours.");
+      contactForm.reset();
+    });
+  }
+  
+  // Newsletter Signup
+  const newsletterBtn = document.getElementById('newsletterBtn');
+  const newsletterInput = document.getElementById('newsletterEmail');
+  if (newsletterBtn && newsletterInput) {
+    newsletterBtn.addEventListener('click', function() {
+      const email = newsletterInput.value.trim();
+      if (!email || !email.includes('@')) {
+        showToast("📧 Please enter a valid email address for newsletter.", true);
+        return;
+      }
+      showToast("📩 Thanks! You're subscribed to insights.");
+      newsletterInput.value = '';
+    });
+  }
+  
+  // Smooth scroll for consultation link
+  const consultLink = document.querySelector('a[href="#consult-form"]');
+  if (consultLink) {
+    consultLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.getElementById('consult-form');
+      if(target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  }
+</script>
+</body>
+</html>
