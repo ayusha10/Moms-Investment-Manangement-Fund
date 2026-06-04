@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Moms Investment Management Fund | Wealth with Integrity</title>
-  <meta name="description" content="Professional investment management services in Nepal. Safe, transparent, and growth-focused financial solutions for families and enterprises.">
+  <meta name="description"
+    content="Professional investment management services in Nepal. Safe, transparent, and growth-focused financial solutions for families and enterprises.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+  <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Nunito+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <style>
     /* ----- reset & base ----- */
     * {
@@ -188,6 +192,7 @@
       color: var(--brand-blue);
       border-bottom: 2px solid var(--brand-blue);
     }
+
     .topbar-nav a.active::after {
       display: none;
     }
@@ -218,9 +223,11 @@
     .mobile-menu-btn.open span:nth-child(1) {
       transform: translateY(8px) rotate(45deg);
     }
+
     .mobile-menu-btn.open span:nth-child(2) {
       opacity: 0;
     }
+
     .mobile-menu-btn.open span:nth-child(3) {
       transform: translateY(-8px) rotate(-45deg);
     }
@@ -268,32 +275,38 @@
       margin-top: 20px;
     }
 
-    
+
     @media (max-width: 768px) {
       .topbar-nav {
         display: none;
       }
+
       .mobile-menu-btn {
         display: block;
       }
+
       .topbar-inner {
         flex-wrap: nowrap;
         justify-content: space-between;
         align-items: center;
       }
+
       .brand {
         flex-direction: column;
         align-items: flex-start;
         gap: 6px;
       }
+
       .brand-logo {
         width: 200px;
       }
+
       .brand-name {
         font-size: 14px;
         letter-spacing: 0.05em;
         max-width: 180px;
       }
+
       .brand-text {
         text-align: left;
       }
@@ -810,54 +823,63 @@
       background: #0d9fdf;
     }
 
-/* Responsive marquee styles */
-.footer-marquee {
-  overflow: hidden;
-  background: var(--brand-blue);
-  width: 100%;
-  margin: 28px 0 20px;
-}
+    /* Responsive marquee styles */
+    .footer-marquee {
+      overflow: hidden;
+      background: var(--brand-blue);
+      width: 100%;
+      margin: 28px 0 20px;
+    }
 
-.marquee-track {
-  display: flex;
-  animation: scroll 18s linear infinite;
-  padding: 12px 0;
-  width: fit-content;
-}
+    .marquee-track {
+      display: flex;
+      animation: scroll 18s linear infinite;
+      padding: 12px 0;
+      width: fit-content;
+    }
 
-.marquee-group {
-  display: flex;
-  gap: clamp(30px, 6vw, 60px);
-  align-items: center;
-  flex-shrink: 0;
-}
+    .marquee-group {
+      display: flex;
+      gap: clamp(30px, 6vw, 60px);
+      align-items: center;
+      flex-shrink: 0;
+    }
 
-.marquee-group span {
-  color: #fff;
-  white-space: nowrap;
-  font-weight: 700;
-  font-size: clamp(10px, 3vw, 14px);
-  letter-spacing: 0.3px;
-}
+    .marquee-group span {
+      color: #fff;
+      white-space: nowrap;
+      font-weight: 700;
+      font-size: clamp(10px, 3vw, 14px);
+      letter-spacing: 0.3px;
+    }
 
-@keyframes scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
 
-/* Extra small devices */
-@media (max-width: 480px) {
-  .marquee-track {
-    animation-duration: 14s; /* slightly faster on small screens for better flow */
-  }
-  .marquee-group {
-    gap: 20px;
-  }
-  .marquee-group span {
-    font-size: 9px;
-    letter-spacing: 0;
-  }
-}
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* Extra small devices */
+    @media (max-width: 480px) {
+      .marquee-track {
+        animation-duration: 14s;
+        /* slightly faster on small screens for better flow */
+      }
+
+      .marquee-group {
+        gap: 20px;
+      }
+
+      .marquee-group span {
+        font-size: 9px;
+        letter-spacing: 0;
+      }
+    }
+
     .footer-note {
       border-top: 1px solid #dbe6f0;
       padding-top: 24px;
@@ -894,46 +916,64 @@
 
     /* responsive adjustments */
     @media (max-width: 992px) {
-      .stats-grid, .philosophy-grid, .footer-grid {
+
+      .stats-grid,
+      .philosophy-grid,
+      .footer-grid {
         grid-template-columns: 1fr 1fr;
       }
+
       .stewardship {
         grid-template-columns: 1fr;
         gap: 40px;
       }
+
       .hero-copy {
         padding: 32px 24px;
       }
     }
 
     @media (max-width: 768px) {
-      .stats-grid, .philosophy-grid, .footer-grid {
+
+      .stats-grid,
+      .philosophy-grid,
+      .footer-grid {
         grid-template-columns: 1fr;
       }
+
       .hero-copy h1 {
         font-size: 1.8rem;
       }
-      .section-head h2, .stewardship-left h2 {
+
+      .section-head h2,
+      .stewardship-left h2 {
         font-size: 1.6rem;
       }
+
       .hero.hero-full {
         padding: 40px 0;
       }
+
       .stat-item {
         padding: 18px;
       }
+
       .media-card {
         padding: 22px 18px;
       }
+
       .media-card h3 {
         font-size: 1.3rem;
       }
+
       .footer-newsletter {
         flex-direction: column;
       }
+
       .footer-newsletter button {
         width: 100%;
       }
+
       .footer-bottom {
         justify-content: center;
         text-align: center;
@@ -944,19 +984,25 @@
       .hero-copy {
         padding: 24px 18px;
       }
-      .button-primary, .button-outline {
+
+      .button-primary,
+      .button-outline {
         padding: 12px 20px;
         font-size: 0.9rem;
       }
+
       .strategy-card {
         padding: 20px 16px;
       }
+
       .feature-item {
         padding: 12px;
       }
+
       .feature-item h3 {
         font-size: 0.9rem;
       }
+
       .overlay-card {
         position: relative;
         left: 0;
@@ -965,12 +1011,14 @@
         margin-top: 12px;
         border-radius: 18px;
       }
+
       .stewardship-card img {
         max-height: 350px;
       }
     }
   </style>
 </head>
+
 <body>
   <header class="topbar">
     <div class="topbar-info">
@@ -979,20 +1027,21 @@
       <span>Pulchowk, Lalitpur · Ph: 01-5450610</span>
     </div>
     <div class="container topbar-inner">
-      <a href="index.html" class="brand">
+      <a href="/" class="brand">
         <img class="brand-logo" src="images/logo.png" alt="Moms Investment Logo">
         <div class="brand-text">
           <!-- <span class="brand-name">MOMS INVESTMENT MANAGEMENT FUND PVT.LTD</span> -->
         </div>
       </a>
-      
+
       <!-- Desktop navigation with active Home -->
       <nav class="topbar-nav">
-        <a href="index.html" class="active">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="services.html">Services</a>
-        <a href="meet_the_team.html">Meet The Team</a>
-        <a href="contact.html">Contact Us</a>
+        <a href="/" class="active">Home</a>
+        <a href="/about">About Us</a>
+        <a href="/services">Services</a>
+        <a href="/meet_the_team">Meet The Team</a>
+
+        <a href="/contact">Contact Us</a>
       </nav>
 
       <!-- Hamburger/X button (mobile only) -->
@@ -1005,13 +1054,14 @@
 
     <!-- Mobile fullscreen navigation container -->
     <div class="mobile-nav-container" id="mobileNavContainer">
-      <a href="index.html">Home</a>
-      <a href="about.html">About Us</a>
-      <a href="services.html">Services</a>
-      <a href="meet_the_team.html">Meet The Team</a>
-      <a href="contact.html">Contact Us</a>
+      <a href="/">Home</a>
+      <a href="/about">About Us</a>
+      <a href="/services">Services</a>
+      <a href="/meet_the_team">Meet The Team</a>
+      <a href="/contact">Contact Us</a>
       <div class="mobile-cta">
-        <a class="button button-primary" href="contact.html" style="width: 100%; text-align: center; color: #ffffff;">Get in Touch</a>
+        <a class="button button-primary" href="/contact" style="width: 100%; text-align: center; color: #ffffff;">Get in
+          Touch</a>
       </div>
     </div>
   </header>
@@ -1021,11 +1071,12 @@
       <div class="container hero-inner">
         <div class="hero-copy">
           <p class="hero-kicker">Trusted investment partner</p>
-          <h1>Managing Your Wealth  with Confidence</h1>
-          <p class="hero-text">We provide transparent investment strategies, professional fund management, and caring financial guidance to help you grow your wealth over time.</p>
+          <h1>Managing Your Wealth with Confidence</h1>
+          <p class="hero-text">We provide transparent investment strategies, professional fund management, and caring
+            financial guidance to help you grow your wealth over time.</p>
           <div class="hero-actions-right">
-            <a class="button button-primary" href="services.html">Our Services</a>
-            <a class="button button-outline" href="contact.html">Talk to Us</a>
+            <a class="button button-primary" href="/services">Our Services</a>
+            <a class="button button-outline" href="/contact">Talk to Us</a>
           </div>
           <div class="hero-highlights">
             <span>Trusted by 12,000+ investors</span>
@@ -1088,20 +1139,35 @@
         <article class="philosophy-card light">
           <span class="mini-pill">SECURE INVESTING</span>
           <h3>Building Wealth with Confidence</h3>
-          <p>Helping investors preserve and grow their capital through disciplined investment management, thorough market research, and a long-term investment approach.</p>
-          <ul><li>Capital preservation</li><li>Professional fund management</li><li>Risk-conscious investing</li></ul>
+          <p>Helping investors preserve and grow their capital through disciplined investment management, thorough
+            market research, and a long-term investment approach.</p>
+          <ul>
+            <li>Capital preservation</li>
+            <li>Professional fund management</li>
+            <li>Risk-conscious investing</li>
+          </ul>
         </article>
         <article class="philosophy-card dark">
           <span class="mini-pill">GROWTH OPPORTUNITIES</span>
           <h3>Strategic Investment Solutions</h3>
-          <p>Identifying promising investment opportunities across diverse sectors to help investors achieve sustainable financial growth and long-term value creation.</p>
-          <ul><li>Diversified investment approach</li><li>Growth-focused strategies</li><li>Market-driven opportunities</li></ul>
+          <p>Identifying promising investment opportunities across diverse sectors to help investors achieve sustainable
+            financial growth and long-term value creation.</p>
+          <ul>
+            <li>Diversified investment approach</li>
+            <li>Growth-focused strategies</li>
+            <li>Market-driven opportunities</li>
+          </ul>
         </article>
         <article class="philosophy-card outline">
           <span class="mini-pill">CLIENT-CENTERED</span>
           <h3>Tailored Financial Planning</h3>
-          <p>Every investor has unique goals. We provide personalized investment guidance and customized solutions designed to align with your financial objectives.</p>
-          <ul><li>Personalized investment plans</li><li>Goal-oriented strategies</li><li>Dedicated investor support</li></ul>
+          <p>Every investor has unique goals. We provide personalized investment guidance and customized solutions
+            designed to align with your financial objectives.</p>
+          <ul>
+            <li>Personalized investment plans</li>
+            <li>Goal-oriented strategies</li>
+            <li>Dedicated investor support</li>
+          </ul>
         </article>
       </div>
     </section>
@@ -1111,12 +1177,42 @@
         <span class="mini-pill">WHY US</span>
         <h2>Why Choose Us</h2>
         <div class="feature-list">
-          <div class="feature-item"><div class="feature-icon">◷</div><div><h3>Professional and experienced investment management</h3></div></div>
-          <div class="feature-item"><div class="feature-icon">◫</div><div><h3>Transparent and client-focused approach</h3></div></div>
-          <div class="feature-item"><div class="feature-icon">◔</div><div><h3>Research-driven investment decisions</h3></div></div>
-          <div class="feature-item"><div class="feature-icon">◔</div><div><h3>Strong commitment to risk management</h3></div></div>
-          <div class="feature-item"><div class="feature-icon">◔</div><div><h3>Long-term wealth creation strategies</h3></div></div>
-          <div class="feature-item"><div class="feature-icon">◔</div><div><h3>Dedicated support for every investor</h3></div></div>
+          <div class="feature-item">
+            <div class="feature-icon">◷</div>
+            <div>
+              <h3>Professional and experienced investment management</h3>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">◫</div>
+            <div>
+              <h3>Transparent and client-focused approach</h3>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">◔</div>
+            <div>
+              <h3>Research-driven investment decisions</h3>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">◔</div>
+            <div>
+              <h3>Strong commitment to risk management</h3>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">◔</div>
+            <div>
+              <h3>Long-term wealth creation strategies</h3>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">◔</div>
+            <div>
+              <h3>Dedicated support for every investor</h3>
+            </div>
+          </div>
         </div>
       </div>
       <div class="stewardship-card">
@@ -1131,18 +1227,52 @@
 
   <footer class="footer">
     <div class="container footer-grid">
-      <div class="footer-col"><h4>Contact Info</h4><ul class="footer-contact"><li>Pulchowk, Lalitpur, Nepal</li><li>momsinvestmentfund032@gmail.com</li><li>01-5450610</li></ul></div>
-      <div class="footer-col"><h4>Opening Time</h4><p>Sun – Fri: 09.00 am to 06.00 pm</p><p>Saturday: By appointment</p></div>
-      <div class="footer-col"><h4>Our Services</h4><ul class="footer-services"><li>Wealth Management</li><li>Estate Planning</li><li>Corporate Treasury</li></ul></div>
-      <div class="footer-col"><h4>Newsletter</h4><p>Subscribe for quick tips, investment insight, and timely updates.</p><div class="footer-newsletter"><input type="email" placeholder="Enter your email" id="newsEmail"><button id="newsBtn">Sign Up</button></div></div>
+      <div class="footer-col">
+        <h4>Contact Info</h4>
+        <ul class="footer-contact">
+          <li>Pulchowk, Lalitpur, Nepal</li>
+          <li>momsinvestmentfund032@gmail.com</li>
+          <li>01-5450610</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Opening Time</h4>
+        <p>Sun – Fri: 09.00 am to 06.00 pm</p>
+        <p>Saturday: By appointment</p>
+      </div>
+      <div class="footer-col">
+        <h4>Our Services</h4>
+        <ul class="footer-services">
+          <li>Wealth Management</li>
+          <li>Estate Planning</li>
+          <li>Corporate Treasury</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Newsletter</h4>
+        <p>Subscribe for quick tips, investment insight, and timely updates.</p>
+        <div class="footer-newsletter"><input type="email" placeholder="Enter your email" id="newsEmail"><button
+            id="newsBtn">Sign Up</button></div>
+      </div>
     </div>
-    <div class="footer-marquee"><div class="marquee-track"><div class="marquee-group"><span>Reg No: 224144/076/077</span><span>Vat No: 609623709</span><span>Pulchowk, Lalitpur</span><span>Ph: 01-5450610</span></div><div class="marquee-group" aria-hidden="true"><span>Reg No: 224144/076/077</span><span>Vat No: 609623709</span><span>Pulchowk, Lalitpur</span><span>Ph: 01-5450610</span></div></div></div>
-    <div class="container footer-note"><p>Moms Investment Management Fund delivers reliable wealth management solutions with a strong focus on transparency, safety, and long-term growth for families and businesses in Nepal.</p></div>
-    <div class="container footer-bottom"><span>© Moms Investment Management Fund. All rights reserved.</span><span class="footer-credit">Designed By Ayusha Poudel</span></div>
+    <div class="footer-marquee">
+      <div class="marquee-track">
+        <div class="marquee-group"><span>Reg No: 224144/076/077</span><span>Vat No: 609623709</span><span>Pulchowk,
+            Lalitpur</span><span>Ph: 01-5450610</span></div>
+        <div class="marquee-group" aria-hidden="true"><span>Reg No: 224144/076/077</span><span>Vat No:
+            609623709</span><span>Pulchowk, Lalitpur</span><span>Ph: 01-5450610</span></div>
+      </div>
+    </div>
+    <div class="container footer-note">
+      <p>Moms Investment Management Fund delivers reliable wealth management solutions with a strong focus on
+        transparency, safety, and long-term growth for families and businesses in Nepal.</p>
+    </div>
+    <div class="container footer-bottom"><span>© Moms Investment Management Fund. All rights reserved.</span><span
+        class="footer-credit">Designed By Ayusha Poudel</span></div>
   </footer>
 
   <script>
-    (function() {
+    (function () {
       // Hamburger/X menu toggle
       const menuBtn = document.getElementById('mobileMenuBtn');
       const mobileNav = document.getElementById('mobileNavContainer');
@@ -1193,4 +1323,5 @@
     })();
   </script>
 </body>
+
 </html>
